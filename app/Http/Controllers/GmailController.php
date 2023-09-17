@@ -72,10 +72,10 @@ class GmailController extends Controller
         $this->token = $serviceInfo->token ?? "";
     }
 
-    public function getCode() {
+    public function getCode(Request $request) {
         $response = Http::withHeaders([
             "Content-Type" => "application/x-www-form-urlencoded",
-        ])->post("https://accounts.google.com/o/oauth2/v2/auth?client_id=" . $this->__GOOGLE_GMAIL_CLIENT_ID__ . "&redirect_uri=http://127.0.0.1:8000/google/oauth/token&scope=https://mail.google.com/&response_type=code");
+        ])->post("https://accounts.google.com/o/oauth2/v2/auth?client_id=" . $this->__GOOGLE_GMAIL_CLIENT_ID__ . "&redirect_uri=". $request->root() ."/google/oauth/token&scope=https://mail.google.com/&response_type=code");
         return $response;
     }
 
@@ -85,7 +85,7 @@ class GmailController extends Controller
             "code" => $this->code,
             "client_id" => $this->__GOOGLE_GMAIL_CLIENT_ID__,
             "client_secret" => $this->__GOOGLE_GMAIL_CLIENT_SECRET__,
-            "redirect_uri" => "/google/oauth/token",
+            "redirect_uri" => $request->root() . "/google/oauth/token",
             "grant_type" => "authorization_code",
             "response_type" => "token"
         ]);
