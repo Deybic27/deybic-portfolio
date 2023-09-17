@@ -11,7 +11,7 @@ export default defineConfig({
                 'resources/css/portfolio.css',
                 'resources/css/post_admin.css',
                 'resources/js/post_admin.js',
-                'resources/templates/scss/post-landing.scss',
+                'resources/scss/templates/post-landing.scss',
             ],
             refresh: true,
         }),
