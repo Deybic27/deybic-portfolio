@@ -40,27 +40,27 @@ h1, h2, h3, h4, h5, h5, p, span, article {
 .row-start {
     display: flex;
     flex-direction: row;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .column-start {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 }
 
 // Variaciones de grid
 .grid-column-3-start {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: start;
+    align-items: flex-start;
 }
 
 .grid-column-2-start {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    align-items: start;
+    align-items: flex-start;
 }
 
 .text-align-start {

@@ -4,6 +4,11 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/css/detail-credit.css": {
+    "file": "assets/detail-credit-210e9f8b.css",
+    "isEntry": true,
+    "src": "resources/css/detail-credit.css"
+  },
   "resources/css/portfolio.css": {
     "file": "assets/portfolio-9ead59ec.css",
     "isEntry": true,
@@ -86,13 +91,18 @@
     "isEntry": true,
     "src": "resources/js/home.js"
   },
+  "resources/js/portfolio.js": {
+    "file": "assets/portfolio-4d026f0b.js",
+    "isEntry": true,
+    "src": "resources/js/portfolio.js"
+  },
   "resources/js/post_admin.js": {
     "file": "assets/post_admin-0f437805.js",
     "isEntry": true,
     "src": "resources/js/post_admin.js"
   },
   "resources/scss/templates/home.scss": {
-    "file": "assets/home-91482963.css",
+    "file": "assets/home-e2aba6af.css",
     "isEntry": true,
     "src": "resources/scss/templates/home.scss"
   },
