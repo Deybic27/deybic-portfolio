@@ -1,0 +1,9 @@
+@import './variables';
+
+@function color($name) {
+    @return map-get($map: $pallete, $key: $name);
+}
+
+@function breakpoints($name) {
+    @return map-get($map: $breakpoints, $key: $name);
+}

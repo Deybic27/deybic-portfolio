@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'Oswald-ExtraLight';
+    src: url('./../../fonts/Oswald/static/Oswald-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'Oswald-Bold';
+    src: url('./../../fonts/Oswald/static/Oswald-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Oswald-Light';
+    src: url('./../../fonts/Oswald/static/Oswald-Light.ttf');
+}
+
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('./../../fonts/Open_Sans/static/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('./../../fonts/Roboto/Roboto-Medium.ttf');
+}
+
+h1 {
+    font-family: 'Oswald-Light';
+    font-size: 4.5rem;
+}
+
+h2 {
+    font-family: 'Oswald-Light';
+    font-size: 3rem;
+}
+
+h3 {
+    font-family: 'Oswald-ExtraLight';
+    font-size: 25px;
+}
+
+h4 {
+    font-family: 'Oswald-ExtraLight';
+}
+
+h5 {
+    font-family: 'Oswald-ExtraLight';
+}
+
+h6 {
+    font-family: 'Oswald-ExtraLight';
+}
+
+p {
+    font-size: 1.25rem;
+    font-family: 'Open_Sans';
+    letter-spacing: 2px;
+}
+
+.text-small {
+    font-size: 1rem;
+    letter-spacing: 0;
+}
