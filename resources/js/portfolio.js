@@ -151,7 +151,7 @@ document.querySelector('#contact-form').addEventListener("submit", (e) => {
     redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:8000/api/portfolio/V1/send-email-contact", requestOptions)
+    fetch("/api/portfolio/V1/send-email-contact", requestOptions)
     .then(response => {
         if (response.status == 200) {
             let elementErrorNew = elementError.cloneNode(true);

@@ -85,7 +85,7 @@ class GmailController extends Controller
             "code" => $this->code,
             "client_id" => $this->__GOOGLE_GMAIL_CLIENT_ID__,
             "client_secret" => $this->__GOOGLE_GMAIL_CLIENT_SECRET__,
-            "redirect_uri" => "http://127.0.0.1:8000/google/oauth/token",
+            "redirect_uri" => "/google/oauth/token",
             "grant_type" => "authorization_code",
             "response_type" => "token"
         ]);
