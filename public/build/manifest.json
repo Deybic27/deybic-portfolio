@@ -14,6 +14,63 @@
     "isEntry": true,
     "src": "resources/css/post_admin.css"
   },
+  "resources/fonts/Open_Sans/static/OpenSans-Regular.ttf": {
+    "file": "assets/OpenSans-Regular-abe9a73c.ttf",
+    "src": "resources/fonts/Open_Sans/static/OpenSans-Regular.ttf"
+  },
+  "resources/fonts/Oswald/static/Oswald-Bold.ttf": {
+    "file": "assets/Oswald-Bold-4bfda62e.ttf",
+    "src": "resources/fonts/Oswald/static/Oswald-Bold.ttf"
+  },
+  "resources/fonts/Oswald/static/Oswald-ExtraLight.ttf": {
+    "file": "assets/Oswald-ExtraLight-8a8c2198.ttf",
+    "src": "resources/fonts/Oswald/static/Oswald-ExtraLight.ttf"
+  },
+  "resources/fonts/Oswald/static/Oswald-Light.ttf": {
+    "file": "assets/Oswald-Light-01ad7bce.ttf",
+    "src": "resources/fonts/Oswald/static/Oswald-Light.ttf"
+  },
+  "resources/fonts/Roboto/Roboto-Medium.ttf": {
+    "file": "assets/Roboto-Medium-9d0d55a3.ttf",
+    "src": "resources/fonts/Roboto/Roboto-Medium.ttf"
+  },
+  "resources/icons/css/all.min.css": {
+    "file": "assets/all.min-2caf3539.css",
+    "isEntry": true,
+    "src": "resources/icons/css/all.min.css"
+  },
+  "resources/icons/webfonts/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-523dc72c.ttf",
+    "src": "resources/icons/webfonts/fa-brands-400.ttf"
+  },
+  "resources/icons/webfonts/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-33a252d6.woff2",
+    "src": "resources/icons/webfonts/fa-brands-400.woff2"
+  },
+  "resources/icons/webfonts/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-e4761618.ttf",
+    "src": "resources/icons/webfonts/fa-regular-400.ttf"
+  },
+  "resources/icons/webfonts/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-886fd1e6.woff2",
+    "src": "resources/icons/webfonts/fa-regular-400.woff2"
+  },
+  "resources/icons/webfonts/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-1c210c13.ttf",
+    "src": "resources/icons/webfonts/fa-solid-900.ttf"
+  },
+  "resources/icons/webfonts/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-94e1bbc1.woff2",
+    "src": "resources/icons/webfonts/fa-solid-900.woff2"
+  },
+  "resources/icons/webfonts/fa-v4compatibility.ttf": {
+    "file": "assets/fa-v4compatibility-a77fc4d9.ttf",
+    "src": "resources/icons/webfonts/fa-v4compatibility.ttf"
+  },
+  "resources/icons/webfonts/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-4dc08f15.woff2",
+    "src": "resources/icons/webfonts/fa-v4compatibility.woff2"
+  },
   "resources/js/app.js": {
     "file": "assets/app-6e0eadfb.js",
     "isEntry": true,
@@ -24,10 +81,20 @@
     "isEntry": true,
     "src": "resources/js/credit.js"
   },
+  "resources/js/home.js": {
+    "file": "assets/home-864f30f5.js",
+    "isEntry": true,
+    "src": "resources/js/home.js"
+  },
   "resources/js/post_admin.js": {
     "file": "assets/post_admin-0f437805.js",
     "isEntry": true,
     "src": "resources/js/post_admin.js"
+  },
+  "resources/scss/templates/home.scss": {
+    "file": "assets/home-91482963.css",
+    "isEntry": true,
+    "src": "resources/scss/templates/home.scss"
   },
   "resources/scss/templates/post-landing.scss": {
     "file": "assets/post-landing-4d449a52.css",

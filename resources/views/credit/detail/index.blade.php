@@ -6,7 +6,7 @@
 <!-- <script type="text/javascript" src="../js/credit.js"></script> -->
 
 <!-- Scripts -->
-@vite(['../../../resources/icons/css/all.min.css', '../../../resources/js/credit.js', '../../../resources/css/detail-credit.css'])
+@vite(['resources/icons/css/all.min.css', 'resources/js/credit.js', 'resources/css/detail-credit.css'])
 
 <div class="container">
     <div class="row w-100 container-children" style="--bs-columns: 3;">

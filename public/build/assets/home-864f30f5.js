@@ -1,0 +1,1 @@
+console.log("PRUEBAAAA");new Swiper(".swiperQuestion",{autoplay:{delay:5e3,disableOnInteraction:!1},pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},debugger:!0});
