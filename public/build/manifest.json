@@ -1,0 +1,37 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-4c38c8bb.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/portfolio.css": {
+    "file": "assets/portfolio-9ead59ec.css",
+    "isEntry": true,
+    "src": "resources/css/portfolio.css"
+  },
+  "resources/css/post_admin.css": {
+    "file": "assets/post_admin-931d5994.css",
+    "isEntry": true,
+    "src": "resources/css/post_admin.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-6e0eadfb.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/credit.js": {
+    "file": "assets/credit-2f0a9644.js",
+    "isEntry": true,
+    "src": "resources/js/credit.js"
+  },
+  "resources/js/post_admin.js": {
+    "file": "assets/post_admin-0f437805.js",
+    "isEntry": true,
+    "src": "resources/js/post_admin.js"
+  },
+  "resources/scss/templates/post-landing.scss": {
+    "file": "assets/post-landing-4d449a52.css",
+    "isEntry": true,
+    "src": "resources/scss/templates/post-landing.scss"
+  }
+}
