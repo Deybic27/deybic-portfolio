@@ -245,11 +245,11 @@ li a i{
 }
 
 .content-text-description{
+    padding: 3%;
+    width: 50%;
     border: solid white 1px;
     border-radius: 10px;
     background-color: white;
-    padding: 3%;
-    width: 50%;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -257,7 +257,11 @@ li a i{
     width: 100%;
     font-size: 16px;
     text-align: justify;
-    padding-bottom: 5%;
+    padding-bottom: 10%;
+}
+
+.content-text-description2:last-of-type {
+    padding-bottom: 0;
 }
 
 .content-text-skills{
@@ -293,7 +297,7 @@ li a i{
 }
 
 .content-skill-download-cv{
-    padding-top: 5%;
+    padding: 10% 0 5% 0;
     width: 100%;
     font-size: 16px;
 }
@@ -324,11 +328,11 @@ li a i{
 }
 
 .content-text-description-each-project{
+    width: 60%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    width: 60%;
 }
 
 .content-all-project{
@@ -435,7 +439,6 @@ li a i{
 .item5 { grid-area: submit; }
 
 .grid-container {
-    width: 100%;
     display: grid;
     grid-template-areas:
     'name name name email email email'
@@ -456,7 +459,7 @@ li a i{
 }
 
 input, textarea{
-    padding: 5%;
+    padding: 15px;
     width: 100%;
     border-radius: 30px;
     border: 0;
@@ -581,6 +584,14 @@ input:focus, textarea:focus, button:hover{
     .show-main{
         z-index: 1;
     }
+
+    .content-text-description-each-project {
+        width: 90%;
+    }
+
+    .content-all-project, .content-project-img {
+        width: 100%;
+    }
 }
 
 @media (max-width: 465px) {
@@ -593,7 +604,19 @@ input:focus, textarea:focus, button:hover{
     }
 
     .content-header-hireme {
-        width: 90%;
+        width: 80%;
         position: relative;
+    }
+
+    .grid-container {
+        grid-template-areas:
+        'name name name name name name'
+        'email email email email email email'
+        'subject subject subject subject subject subject'
+        'message message message message message message'
+        'submit submit submit submit submit submit';
+    }
+    input, textarea {
+        border-radius: 10px;
     }
 }

@@ -13,7 +13,7 @@
         <div class="col-lg-4 text-lg-center colum-h">
             <div class="grid">
                 <div class="p-4"><span class="bold-text">Detalle cuotas</span></div>
-                @if ($credits->count() > 0)
+                    @if ($credits->count() > 0)
                     @foreach ($credits as $credit)
                             <div class="row @if ($credit->id == $details->id) focus @endif">
                                 <div class="col d-flex align-items-center">{{$credit->name_loan}}</div>
@@ -34,9 +34,10 @@
                                 </div>
                             </div>
                     @endforeach
-                @else
-                    No hay créditos registrados
-                @endif
+                    @else
+                        No hay créditos registrados
+                    @endif
+                <hr class="mt-4">
             </div>
         </div>
         <div class="col-lg-4 text-lg-center colum-h">
@@ -62,6 +63,7 @@
                             <div class="col">{{number_format($details->total_interest)}}</div>
                             <div class="col">{{number_format($details->total_to_pay)}}</div>
                         </div>
+                        <hr class="mt-4">
                         <div class="p-4"><span class="bold-text">Detalle cuotas</span></div>
                         <div class="scroll-y detailfee">
                             <div class="row">
@@ -70,15 +72,16 @@
                                 <div class="col"><span class="bold-text">Cuota</span></div>
                                 <div class="col"><span class="bold-text">Total</span></div>
                             </div>
-                        @for ($i = 1; $i <= $details->number_fee; $i++)
+                            @for ($i = 1; $i <= $details->number_fee; $i++)
                             <div class="row">
                                 <div class="col">{{$i}}</div>
                                 <div class="col">{{number_format($value_interest[$i],2)}}</div>
                                 <div class="col">{{number_format($value_fee)}}</div>
                                 <div class="col">{{number_format($var[$i],2)}}</div>
                             </div>
-                        @endfor
+                            @endfor
                         </div>
+                        <hr class="mt-4">
                 @else
                     Seleccione un crédito
                 @endif                

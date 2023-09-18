@@ -37,11 +37,14 @@ a:focus>div.row>div.col{
 }
 
 .scroll-y.detailfee{
-    height: 35vh;
+    height: max-content;
+    max-height: 35vh;
 }
 
 .scroll-y.registerfee{
-    height: 43vh;
+    height: max-content;
+    max-height: 43vh;
+    padding-bottom: 30px;
 }
 
 .bold-text{
@@ -62,19 +65,12 @@ div.row.focus{
     .container-children {
         margin: 0 auto;
     }
-    .container-children > div {
-        border-left: none;
-        border-bottom: solid 1px black;
-    }
-    .container-children > div:last-of-type {
-        border-bottom: none;
-    }
 }
-@media (min-width: 992px) {
-    .container-children > div {
-        border-left: solid 1px black;
+@media (max-width: 0) {
+    .grid hr:last-of-type {
+        display: none;
     }
-    .container-children > div:first-of-type {
-        border-left: none;
-    }
+    .row {
+        flex-direction: column;
+    }    
 }

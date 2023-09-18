@@ -1,7 +1,7 @@
 @extends('todo.app')
 
 @section('content')
-    <div class="container w-25 border p-4 my-4">
+    <div class="container border p-4 my-4">
         <div class="row mx-auto">
             <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="POST">
                 @method('PATCH')

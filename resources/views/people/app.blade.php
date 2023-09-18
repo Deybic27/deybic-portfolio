@@ -30,6 +30,15 @@
             text-decoration: none;
         }
 
+        @media (max-width: 657px) {
+          body {
+            width: 100%;
+            overflow: hidden;
+          }
+          .table .table-striped {
+
+          }
+        }
     </style>
 </head>
 <body>
