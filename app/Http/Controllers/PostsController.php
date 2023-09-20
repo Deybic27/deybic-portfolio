@@ -104,15 +104,18 @@ class PostsController extends Controller
     public function update(Request $request, Post $post)
     {
         $post = Post::find($post->id);
-        $post->title = $request->title;
-        $post->description = $request->description;
-        // $post->image = $request->image;
-        $post->post_category_id = $request->category;
-        $post->save();
 
-        // if($request->hasFile('image') && $request->file('image')->isValid()){
-        //     $post->addMediaFromRequest('image')->toMediaCollection('image');
-        // }
+        
+        $post->title = $request->title ?? $post->title;
+        $post->description = $request->description ?? $post->description;
+        $post->image = $request->image ?? $post->image;
+        $post->post_category_id = $request->category ?? $post->post_category_id;
+        $post->save();
+        
+        if($request->hasFile('image') && $request->file('image')->isValid()){
+            $post->clearMediaCollection('image');
+            $post->addMediaFromRequest('image')->toMediaCollection('image');
+        }
 
         return redirect()->route('post-categories.index')->with('success','Publicación actualizada correctamente');
 
