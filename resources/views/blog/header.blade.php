@@ -1,4 +1,5 @@
 <head>
+    <link rel="icon" href="{{ asset('image/favicon.png') }}">
     <title>{{ $post['title'] }}</title>
     <!-- Scripts -->
     @vite(['resources/scss/templates/post-landing.scss', 'resources/icons/css/all.min.css'])

@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9679194423445570"
      crossorigin="anonymous"></script>
+	 <link rel="icon" href="{{ asset('image/favicon.png') }}">
     <!-- Scripts -->
     @vite(['resources/css/portfolio.css', 'resources/icons/css/all.min.css', 'resources/js/portfolio.js'])
 </head>
