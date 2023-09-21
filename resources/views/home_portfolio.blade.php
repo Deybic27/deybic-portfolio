@@ -157,7 +157,7 @@
 									<div class="content-text-skills-progress-bar" style="width: 95%; background-color: #FF4C60;"></div>
 								</div>
 								<div class="content-skill-download-cv">
-									<a href="./files/CURRICULUM - DEYBIC ROJAS.pdf" download="CURRICULUM - DEYBIC ROJAS" class="btn btn-default">Descargar CV</a>
+									<a href="./files/CV - DEYBIC ROJAS.pdf" download="CURRICULUM - DEYBIC ROJAS" class="btn btn-default">Descargar CV</a>
 								</div>
 							</div>
 						</div>
@@ -190,16 +190,6 @@
 											<p>* Analizar y desarrollar soluciones web funcionales de alta calidad.</p>
 											<p>* Realizar mantenimiento y corrección de bugs</p>
 											<p>* Implementar código reutilizable y librerías.</p>
-										</div>
-										<div class="content-text-description2">
-											<p>Febrero 2018 - Diciembre 2019</p>
-											<p><i class="fas fa-briefcase padding-icon"></i><b>Auxiliar de Oficina Área de Sistemas</b></p>
-											<p>Soporte al sistema INNOVA y página web de INSURCOL LTDA y apoyo administrativo al área de Calidad.</p>
-										</div>
-										<div class="content-text-description2">
-											<p>Julio 2017 - Enero 2018</p>
-											<p><i class="fas fa-briefcase padding-icon"></i><b>Practicante Área Administrativa</b></p>
-											<p>Soporte al sistema INNOVA y página web de INSURCOL LTDA y apoyo administrativo al área de Calidad.</p>
 										</div>
 									</div>
 								</div>
