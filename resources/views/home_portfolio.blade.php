@@ -61,7 +61,7 @@
 							<p>Yo soy <span class="content-rotating-text rotating">Desarrollador Web,Desarrollador PHP,Desarrollador Backend, Desarrollador Laravel</span></p>
 						</div>
 						<div class="content-header-text">
-							<a href="#contact" class="btn btn-default">Contrátame</a>
+							<a href="#contact" class="btn btn-default">Contáctame</a>
 						</div>
 					</div>
 				</div>

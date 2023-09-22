@@ -204,6 +204,7 @@ li a i{
     cursor: pointer;
     /* transition: none; */
     box-shadow: black 0 1px 6px;
+    border: none;
 }
 
 .btn-default{
@@ -231,7 +232,7 @@ li a i{
 .content-title-descripcion{
     width: 60%;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     padding-bottom: 5%;
 }
 
@@ -592,6 +593,10 @@ input:focus, textarea:focus, button:hover{
     .content-all-project, .content-project-img {
         width: 100%;
     }
+
+    .content-all-blog .content-project-img {
+        object-fit: contain;
+    }
 }
 
 @media (max-width: 465px) {
@@ -601,6 +606,10 @@ input:focus, textarea:focus, button:hover{
 
     .content-all-blog {
         width: 90%;
+    }
+
+    .content-all-blog > .content-project-img {
+        object-fit: contain;
     }
 
     .content-header-hireme {
