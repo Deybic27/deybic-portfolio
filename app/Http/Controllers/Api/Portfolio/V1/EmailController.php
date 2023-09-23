@@ -35,7 +35,7 @@ class EmailController extends Controller
     public function sendEmailContact(Request $request) {
         // dd($request->fromName, $request->fromEmail);
         try {
-            Mail::to(env("MAIL_FROM_ADDRESS"))->send(new ContactEmail($request->fromName, $request->fromEmail, $request->subject, $request->text));
+            Mail::to("contacto@deybicrojas.com")->send(new ContactEmail($request->fromName, $request->fromEmail, $request->subject, $request->text));
         } catch (\Throwable $th) {
             return new Response("Service Unavailable", 503);
         }
