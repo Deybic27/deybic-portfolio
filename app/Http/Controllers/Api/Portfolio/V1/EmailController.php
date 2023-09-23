@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api\Portfolio\V1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\GmailController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\GmailController;
+use App\Http\Controllers\PostCategoriesController;
+use App\Mail\ContactEmail;
 
 class EmailController extends Controller
 {
@@ -30,18 +33,35 @@ class EmailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function sendEmailContact(Request $request) {
-        $fromName = $request->fromName;
-        $fromEmail = $request->fromEmail;
-        $toName = "Deybic Rojas";
-        $toEmail = "deybic9715@gmail.com";
-        $subject = $request->subject;
-        $text = $request->text 
-        . "\nFrom: " . $fromName
-        . " <" . $fromEmail
-        . ">\nTo: " . $toName
-        . " <" . $toEmail
-        . ">";
-        $response = $this->gmail->sendMail($fromName, $fromEmail, $toName, $toEmail, $subject, $text);
-        return new Response($response->json(), $response->status());
+        // dd($request->fromName, $request->fromEmail);
+        try {
+            Mail::to(env("MAIL_FROM_ADDRESS"))->send(new ContactEmail($request->fromName, $request->fromEmail, $request->subject, $request->text));
+        } catch (\Throwable $th) {
+            return new Response("Service Unavailable", 503);
+        }
+        return new Response("E-mail sent", 200);
+        // $fromName = $request->fromName;
+        // $fromEmail = $request->fromEmail;
+        // $toName = "Deybic Rojas";
+        // $toEmail = "deybic9715@gmail.com";
+        // $subject = $request->subject;
+        // $text = $request->text 
+        // . "\nFrom: " . $fromName
+        // . " <" . $fromEmail
+        // . ">\nTo: " . $toName
+        // . " <" . $toEmail
+        // . ">";
+        // $response = $this->gmail->sendMail($fromName, $fromEmail, $toName, $toEmail, $subject, $text);
+        // return new Response($response->json(), $response->status());
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sendEmailSmtp(Request $request) {
+        // dd($request);
+        
     }
 }
