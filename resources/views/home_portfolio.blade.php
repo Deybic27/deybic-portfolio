@@ -21,7 +21,9 @@
 			</div>
 			<!-- logo image -->
 			<div class="logo">
-				<h1 class="content-logo">Codered</h1>
+				<div class="content-logo">
+					<img class="content-logo-img" src="./image/logodr.png" alt="Logo">
+				</div>
 			</div>
 		</div>
 	</header>
@@ -29,7 +31,9 @@
 	<!-- desktop header -->
 	<header class="desktop-header close">
 		<div class="logo">
-			<h1 class="content-logo">Codered</h1>
+			<div class="content-logo">
+				<img class="content-logo-img" src="./image/logodr.png" alt="Logo">
+			</div>
 		</div>
 		<nav>
 			<ul>
