@@ -23,10 +23,6 @@
                         @if (session('success'))
                             <h6 class="alert alert-success">{{ session('success') }}</h6>                
                         @endif
-
-                        @error('name')
-                            <h6 class="alert alert-danger">{{ $message }}</h6>                
-                        @enderror
                         @php
                             $key=0;
                         @endphp
@@ -62,7 +58,7 @@
                                                     <form action="{{ route('posts.destroy',[$post->id]) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <a href="#">
+                                                        <a href="">
                                                             <button type="submit" class="btn btn-danger">
                                                                 <i class="fas fa-arrow-circle-right"></i>
                                                                 Eliminar
@@ -92,13 +88,13 @@
         <button class="botonF1">
             <span>+</span>
         </button>
-        <a href="#">
+        <a href="#&c=new">
             <button title="NUEVA CATEGORÍA" class="btnFloat botonF2" data-bs-toggle="modal" data-bs-target="#modal-category">
                 <label>NUEVA CATEGORÍA</label>
                 <span>+</span>
             </button>
         </a>
-        <a href="#">
+        <a href="#&p=new">
             <button title="NUEVA PUBLICACIÓN" class="btnFloat botonF3" data-bs-toggle="modal" data-bs-target="#modal-post">
                 <label>NUEVA PUBLICACIÓN</label>
                 <span>+</span>
@@ -118,40 +114,62 @@
             <div id="newCategory" class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="labelCategory">Nueva categoría</h5>
-                    <a href="#"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
+                    <a href=""><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('post-categories.store') }}" method="POST">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <p>Corrige los siguientes errores:</p>
+                                <ul>
+                                    @foreach ($errors->all() as $message)
+                                        <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @csrf
                         <label for="name">Nombre: </label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Digite el nombre de la categoría" required>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Digite el nombre de la categoría" value="{{ old('name') }}">
                         <div class="modal-footer">
-                            <a href="#"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
+                            <a href=""><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <!-- End New Category -->
             <!-- Edit Category -->
             <div id="editCategory" class="modal-content" style="display: none;">
                 <div class="modal-header">
                     <h5 class="modal-title" id="labelCategory">Editar categoría</h5>
-                    <a href="#"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
+                    <a href=""><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
                 </div>
                 <div class="modal-body">
                     <form action="" enctype="multipart/form-data" method="POST">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <p>Corrige los siguientes errores:</p>
+                                <ul>
+                                    @foreach ($errors->all() as $message)
+                                        <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @method('PATCH')
                         @csrf
                         <label for="name">Nombre: </label>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Digite el nombre de la categoría" required>
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Digite el nombre de la categoría" value="{{ old('name') }}">
                         <div class="modal-footer">
-                            <a href="#"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
+                            <a href=""><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></a>
                             <button type="submit" class="btn btn-success">Guardar</button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-delete-category">Eliminar</button>
                         </div>
                     </form>
                 </div>
             </div>
+            <!-- End Edit Category -->
         </div>
     </div>
     <!-- Modal -->
@@ -160,10 +178,20 @@
             <div id="newPost" class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="labelPost">Nueva publicación</h5>
-                    <a href="#"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
+                    <a href=""><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('posts.store') }}" enctype="multipart/form-data" method="POST">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <p>Corrige los siguientes errores:</p>
+                                <ul>
+                                    @foreach ($errors->all() as $message)
+                                        <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @csrf
                         <label for="title">Título: </label>
                         <input type="text" name="title" id="title" class="form-control" placeholder="Digite el título de la publicación">
@@ -179,7 +207,7 @@
                         @endforeach
                         </select>
                         <div class="modal-footer">
-                            <a href="#">
+                            <a href="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </a>
                             <button type="submit" class="btn btn-success">Guardar</button>
@@ -191,10 +219,20 @@
             <div id="editPost" class="modal-content" style="display: none;">
                 <div class="modal-header">
                     <h5 class="modal-title" id="labelPost">Editar publicación</h5>
-                    <a href="#"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
+                    <a href=""><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
                 </div>
                 <div class="modal-body">
                     <form action="" enctype="multipart/form-data" method="POST">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <p>Corrige los siguientes errores:</p>
+                                <ul>
+                                    @foreach ($errors->all() as $message)
+                                        <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         @method('PATCH')
                         @csrf
                         <label for="title">Título: </label>
@@ -211,7 +249,7 @@
                         @endforeach
                         </select>
                         <div class="modal-footer">
-                            <a href="#">
+                            <a href="">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </a>
                             <button type="submit" class="btn btn-success">Guardar</button>

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
-use App\Models\Post_category;
 use Illuminate\Http\Request;
+use App\Models\Post_category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PostsController extends Controller
 {
@@ -38,6 +39,55 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
+        // Data validation
+        $rules = [
+            'title' => [
+                "required",
+                "unique:posts,title",
+                "min:3",
+                "max:50",
+            ],
+            'description' => [
+                "required"
+            ],
+            'image' => [
+                "required",
+                "max:1000",
+                "dimensions:max_width=1080,max_height=1080"
+            ],
+            'category' => [
+                "required",
+                "exists:App\Models\Post_category,id"
+            ],
+        ];
+        $message = [
+            'title.required' => 'El título es obligatorio',
+            'title.unique' => 'Ya existe una publicación con ese nombre',
+            "title.min" => "El título debe tener como mínimo :min dígitos",
+            "title.max" => "El título debe tener como máximo :max dígitos",
+            'description.required' => 'La descripción es obligatoria',
+            'image.required' => 'La imagen es obligatoria',
+            'image.dimensions' => 'Las dimensiones de la imagen deben ser máximo :max_width x :max_height',
+            'image.max' => 'La imagen debe ser máximo :max kilobytes',
+            'category.required' => 'La categoría es obligatoria',
+            'category.exists' => 'La categoría seleccionada no es válida.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+        
+        if ($validator->fails()) {    
+            // Estos datos se envían
+            $str = "title=" . urlencode($request->get("title")) . "\n";
+            $str .= "description=" . urlencode($request->get("description")) . "\n";
+            $str .= "post_category_id=" . $request->get("category");
+            $strEncode = urlencode(base64_encode($str));
+
+            return redirect("/post-categories#&p=new&d=$strEncode")
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        $this->validate($request, $rules, $message);
+
         $post = new Post;
         $post->title = $request->title;
         $post->description = $request->description;
@@ -79,7 +129,6 @@ class PostsController extends Controller
                 "posts" => $category->posts()->getResults()
             ];
         }
-        // dd($header);
         return view('blog.app',["post" => $data, "headers" => $header]);
     }
 
@@ -103,13 +152,67 @@ class PostsController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $post = Post::find($post->id);
+        // Data validation
+        $rules = [
+            'title' => [
+                "required",
+                "unique:posts,title,$post->id",
+                "min:3",
+                "max:50"
+            ],
+            'description' => [
+                "required"
+            ],
+            'image' => [
+                "max:1000",
+                "dimensions:max_width=1080,max_height=1080"
+            ],
+            'category' => [
+                "required",
+                "exists:post_categories,id"
+            ],
+        ];
+        $message = [
+            'title.required' => 'El título es obligatorio',
+            'title.unique' => 'Ya existe una publicación con ese nombre',
+            "title.min" => "El título debe tener como mínimo :min dígitos",
+            "title.max" => "El título debe tener como máximo :max dígitos",
+            'description.required' => 'La descripción es obligatoria',
+            'image.required' => 'La imagen es obligatoria',
+            'image.dimensions' => 'Las dimensiones de la imagen deben ser máximo :max_width x :max_height',
+            'image.max' => 'La imagen debe ser máximo :max kilobytes',
+            'category.required' => 'La categoría es obligatoria',
+            'category.exists' => 'La categoría seleccionada no es válida.',
+        ];
 
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        $post = Post::find($post->id);
         
-        $post->title = $request->title ?? $post->title;
-        $post->description = $request->description ?? $post->description;
-        $post->image = $request->image ?? $post->image;
-        $post->post_category_id = $request->category ?? $post->post_category_id;
+        if ($validator->fails()) {
+            $urlImage = $post->getMedia('image')->first()->getUrl() ?? "";
+    
+            // Estos datos se envían
+            $str = "title=" . urlencode($request->get("title")) . "\n";
+            $str .= "description=" . urlencode($request->get("description")) . "\n";
+            $str .= "post_category_id=" . $request->get("category") . "\n";
+            $str .= "id=" . $post->id . "\n";
+            $str .= "urlImage=" . $urlImage;
+            $strEncode = urlencode(base64_encode($str));
+
+            return redirect("/post-categories#&p=$post->id&d=$strEncode")
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+        $this->validate($request, $rules, $message);
+        
+        // Data save
+        $post->title = $request->title;
+        $post->description = $request->description;
+        if ($request->image) {
+            $post->image = $request->image;
+        }
+        $post->post_category_id = $request->category;
         $post->save();
         
         if($request->hasFile('image') && $request->file('image')->isValid()){

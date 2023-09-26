@@ -40,7 +40,6 @@ $(document).ready(function() {
             if (hide<=6) {
                 hide+=1;
                 show+=1;
-                console.log(hide+' '+show);
             }            
         }
     });
@@ -54,7 +53,6 @@ $(document).ready(function() {
             show=showp;
             hidep-=1;
             showp-=1;
-            console.log(hidep+' '+showp);
         }
     });
 
@@ -75,7 +73,6 @@ $(document).ready(function() {
 
 document.querySelector('#contact-form').addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log(e);
     const elementName = e.target.querySelector('#name');
     const elementEmail = e.target.querySelector('#email');
     const elementSubject = e.target.querySelector('#subject');

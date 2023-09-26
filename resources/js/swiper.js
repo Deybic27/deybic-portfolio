@@ -1,4 +1,3 @@
-console.log('PRUEBAAAA');
 // Init Swiper
 var swiper = new Swiper('.swiperQuestion', {
     autoplay: {

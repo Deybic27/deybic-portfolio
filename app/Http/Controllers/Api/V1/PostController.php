@@ -17,7 +17,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        // dump($posts);
 
         foreach ($posts as $key => $post) {
             $data[] = [
@@ -59,7 +58,6 @@ class PostController extends Controller
             'post_category_id' => $post['post_category_id'],
             'urlImage' => $post->getMedia('image')->first()->getUrl()
         ];
-        // dump($post->getMedia('image')->first()->getUrl());
         return $data;
     }
 

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post_category;
 use Illuminate\Http\Request;
+use App\Models\Post_category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class PostCategoriesController extends Controller
 {
@@ -38,10 +39,26 @@ class PostCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $this->validate($request, [
-            'name' => 'required|min:3',
-        ]);
+        $rules = [
+            "name" => [
+                "required",
+                "unique:post_categories,name",
+                "min:3"
+                ]
+        ];
+        $message = [
+            "name.required" => "El nombre es obligatorio",
+            'name.unique' => 'Ya existe una categoría con ese nombre',
+            "name.min" => "El nombre debe tener como mínimo :min dígitos"
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect("/post-categories#&c=new")
+                    ->withErrors($validator)
+                    ->withInput();
+        }
 
         $postCategory = new Post_category;
         $postCategory->name = $request->name;
@@ -83,6 +100,29 @@ class PostCategoriesController extends Controller
      */
     public function update(Request $request, Post_category $post_category)
     {
+        $rules = [
+            "name" => [
+                "required",
+                "unique:post_categories,name,$post_category->id",
+                "min:3",
+                "max:50",
+            ]
+        ];
+        $message = [
+            "name.required" => "El nombre es obligatorio",
+            "name.unique" => "Ya existe una categoría con este nombre",
+            "name.min" => "El nombre debe tener como mínimo :min dígitos",
+            "name.max" => "El nombre debe tener como máximo :max dígitos"
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $message);
+
+        if ($validator->fails()) {
+            return redirect("/post-categories#&c=$post_category->id")
+                    ->withErrors($validator)
+                    ->withInput();
+        }
+
         $post_category->name = $request->name;
         $post_category->save();
         return redirect()->route('post-categories.index')->with('success','Categoría actualizada correctamente');
