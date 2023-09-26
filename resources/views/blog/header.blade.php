@@ -7,14 +7,14 @@
 <header>
     <div class="logoHeader">
         <a href="/">
-            <img src="{{ asset('image/portfolio/imgPerfil.jpg') }}" alt="">
+            <img src="{{ asset('image/logodr.png') }}" alt="">
         </a>
     </div>
     <div class="container">
         <nav class="container__menu">
             <div class="logoHeader">
                 <a href="/">
-                    <img src="{{ asset('image/portfolio/imgPerfil.jpg') }}" alt="">
+                    <img src="{{ asset('image/logodr.png') }}" alt="">
                 </a>
                 <i class="fa-solid fa-x"></i>
             </div>

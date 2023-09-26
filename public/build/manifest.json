@@ -112,7 +112,7 @@
     "src": "resources/scss/templates/home.scss"
   },
   "resources/scss/templates/post-landing.scss": {
-    "file": "assets/post-landing-69e184ce.css",
+    "file": "assets/post-landing-dc0a887e.css",
     "isEntry": true,
     "src": "resources/scss/templates/post-landing.scss"
   }
