@@ -348,10 +348,20 @@ footer{
             gap: 30px;
             &__info {
                 width: 100%;
+                &_title {
+                    width: 100%;
+                    font-size: 3em;
+                }
             }
             &__content {
                 width: 100%;
                 &_description {
+                    h1 {
+                        font-size: 3em;
+                    }
+                    h2 {
+                        font-size: 2.5em;
+                    }
                     img {
                         width: 100%;
                     }
