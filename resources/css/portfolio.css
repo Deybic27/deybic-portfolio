@@ -554,6 +554,13 @@ input:focus, textarea:focus, button:hover{
 }
 
 @media (max-width: 991px) {
+    p, span, .content-text-skill, .content-text-skills-cant, .btn-default {
+        font-size: 2em;
+        line-height: 1.3em;
+    }
+    h2 {
+        font-size: 4em;
+    }
     .content-about{
         padding: 10% 0 0 0;
     }
@@ -598,11 +605,27 @@ input:focus, textarea:focus, button:hover{
     }
 
     .content-all-project, .content-project-img {
+        min-width: 100%;
+        height: 700px;
+    }
+
+    .content-text-description-all-project {
+        flex-direction: column;
+    }
+
+    .content-all-blog {
         width: 100%;
+        height: max-content;
     }
 
     .content-all-blog .content-project-img {
         object-fit: contain;
+    }
+
+    .content-header-hireme {
+        justify-content: space-evenly;
+        width: 80%;
+        position: relative;
     }
 }
 
