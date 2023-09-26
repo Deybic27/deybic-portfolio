@@ -553,9 +553,9 @@ input:focus, textarea:focus, button:hover{
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 991px) {
     .content-about{
-        padding: 20% 0;
+        padding: 10% 0 0 0;
     }
     .close{
         font-size: 14px;
