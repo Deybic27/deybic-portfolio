@@ -10,12 +10,16 @@ $padding-colum: 0 20px;
 $padding-row: 20px 0;
 
 p, ul {
-    font-size: 1.5em;
-    line-height: 1.3em;
+    font-size: 1.2em;
+    line-height: 1.5rem;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.8em;
 }
 
 * {
@@ -46,21 +50,25 @@ header{
     height: 50px;
     border-bottom: solid 1px $first-color;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     .logoHeader{
         display: flex;
-        justify-content: center;
-        width: 10%;
+        justify-content: flex-start;
+        align-items: center;
+        width: max-content;
         height: 80%;
+        // border-right: solid 1px $first-color;
         img {
-            height: 100%;
+            width: 100%;
+            height: auto;
             border-radius: 50%;
         }
     }
     .container{
         width: 90%;
         height: 100%;
+        padding-left: 10px;
         &__mobile {
             display: none;
         }
@@ -81,26 +89,26 @@ header{
                 .item {
                     width: max-content;
                     .subitems {
-                        min-width: max-content;
                         max-width: 100%;
+                        height: max-content;
                         width: 100%;
                         padding: 20px;
                         left: 0;
-                        height: max-content;
-                        height: max-content;
                         position: absolute;
                         display: flex;
-                        flex-direction: column;
+                        flex-direction: row;
                         justify-content: flex-start;
                         align-items: flex-start;
+                        flex-wrap: wrap;
                         background-color: $white;
                         color: $black;
                         top: 48px;
                         display: none;
                         box-shadow: 0 2px 7px 1px rgba(0,0,0,0.05), 0 6px 32px 0 rgba(18,43,70,0.1);
                         &_item {
-                            width: 100%;
+                            width: 33%;
                             &_link {
+                                width: 100%;
                                 text-decoration: none;
                                 &:hover {
                                     margin-left: 5px;
@@ -115,7 +123,7 @@ header{
                         }
                     }
                     &:hover .subitems {
-                        display: block;
+                        display: flex;
                     }
                 }
             }
