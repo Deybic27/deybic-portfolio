@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/css/post_admin.css',
                 'resources/js/post_admin.js',
                 'resources/scss/templates/post-landing.scss',
+                'resources/js/post-landing.js',
                 'resources/icons/css/all.min.css',
                 'resources/scss/templates/home.scss',
                 'resources/js/home.js',

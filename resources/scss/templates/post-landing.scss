@@ -8,6 +8,15 @@ $white: #ffffff;
 $padding-colum: 0 20px;
 $padding-row: 20px 0;
 
+p, ul {
+    font-size: 1.5em;
+    line-height: 1.3em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -51,9 +60,15 @@ header{
     .container{
         width: 90%;
         height: 100%;
+        &__mobile {
+            display: none;
+        }
         &__menu {
             width: 100%;
             height: 100%;
+            .logoHeader {
+                display: none;
+            }
             &__items {
                 width: 100%;
                 height: 100%;
@@ -210,6 +225,7 @@ footer{
     &_body{
         width: 90%;
         display: flex;
+        flex-direction: row;
         padding: 30px 20px;
         &__info{
             display: flex;
@@ -236,12 +252,96 @@ footer{
                     line-height: 1.5rem;
                     padding-bottom: 20px;
                 }
+                img {
+                    width: 100%;
+                }
             }
         }
     }
 }
 
-@media (max-width: 657px) {
+@media (max-width: 991px) {
+    header {
+        height: 100px;
+        .container {
+            &__mobile {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                i {
+                    padding: 0 10px 0 0;
+                    font-size: 6rem;
+                }
+            }
+            &__menu {
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                position: fixed;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: $white;
+                color: $black;
+                overflow-y: auto;
+                transform: translateX(100%);
+                transition: transform 1s;
+                &.show {
+                    transform: translateX(0);
+                    transition: transform 1s;
+                }
+                .logoHeader{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 90%;
+                    height: 250px;
+                    padding: 20px 20px;
+                    border-bottom: solid 1px $black;
+                    img {
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                    i {
+                        font-size: 6rem;
+                    }
+                }
+                &__items {
+                    padding: 5%;
+                    height: auto;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    overflow-y: auto;
+                    .item {
+                        width: 100%;
+                        font-size: 3rem;
+                        .subitems {
+                            position: inherit;
+                            display: block;
+                            background-color: $white;
+                            box-shadow: none;
+                            display: none;
+                            .show {
+                                display: block;
+                            }
+                            &_item {
+                                &:nth-child(1n) {
+                                    background-color: $white;
+                                }
+                                &_link {
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .post {
         &_body {
             flex-direction: column;
@@ -251,6 +351,11 @@ footer{
             }
             &__content {
                 width: 100%;
+                &_description {
+                    img {
+                        width: 100%;
+                    }
+                }
             }
         }
     }
