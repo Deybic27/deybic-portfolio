@@ -97,7 +97,7 @@
     "src": "resources/js/portfolio.js"
   },
   "resources/js/post-landing.js": {
-    "file": "assets/post-landing-c1024040.js",
+    "file": "assets/post-landing-b05e4e6c.js",
     "isEntry": true,
     "src": "resources/js/post-landing.js"
   },
@@ -112,7 +112,7 @@
     "src": "resources/scss/templates/home.scss"
   },
   "resources/scss/templates/post-landing.scss": {
-    "file": "assets/post-landing-ac45c9ed.css",
+    "file": "assets/post-landing-385a5bf2.css",
     "isEntry": true,
     "src": "resources/scss/templates/post-landing.scss"
   }

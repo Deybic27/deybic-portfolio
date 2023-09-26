@@ -105,6 +105,9 @@ header{
                         top: 48px;
                         display: none;
                         box-shadow: 0 2px 7px 1px rgba(0,0,0,0.05), 0 6px 32px 0 rgba(18,43,70,0.1);
+                        &.show {
+                            display: flex;
+                        }
                         &_item {
                             width: 33%;
                             &_link {
@@ -122,9 +125,9 @@ header{
                             background-color: $first-color;
                         }
                     }
-                    &:hover .subitems {
-                        display: flex;
-                    }
+                    // &:hover .subitems {
+                    //     display: flex;
+                    // }
                 }
             }
         }
@@ -270,6 +273,9 @@ footer{
 }
 
 @media (max-width: 991px) {
+    ul, li {
+        line-height: 3rem;
+    }
     header {
         width: 100%;
         height: 200px;
@@ -349,14 +355,16 @@ footer{
                         font-size: 3rem;
                         .subitems {
                             position: inherit;
-                            display: block;
+                            display: flex;
+                            flex-direction: column;
                             background-color: $white;
                             box-shadow: none;
                             display: none;
-                            .show {
-                                display: block;
+                            &.show {
+                                display: flex;
                             }
                             &_item {
+                                width: 100%;
                                 &:nth-child(1n) {
                                     background-color: $white;
                                 }

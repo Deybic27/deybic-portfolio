@@ -23,7 +23,7 @@
                 @foreach ($headers as $header)
                     @if (count($header['category']['posts']))
                         <li class="container__menu__items item">
-                            {{ $header['category']['name'] }}
+                            <div class="item_title">{{ $header['category']['name'] }}</div>
                             <ul class="container__menu__items item subitems">
                                 @foreach ($header['category']['posts'] as $post)
                                 <li class="container__menu__items item subitems_item"><a class="subitems_item_link" href="/blog/{{ $post['id'] }}">{{ $post['title'] }}</a></li>
