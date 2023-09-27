@@ -555,11 +555,11 @@ input:focus, textarea:focus, button:hover{
 
 @media (max-width: 991px) {
     p, span, .content-text-skill, .content-text-skills-cant, .btn-default {
-        font-size: 2em;
+        font-size: 1rem;
         line-height: 1.3em;
     }
     h2 {
-        font-size: 3em;
+        font-size: 2em;
     }
     .content-about{
         padding: 10% 0 0 0;
@@ -630,13 +630,13 @@ input:focus, textarea:focus, button:hover{
 }
 
 @media (max-width: 657px) {
-    p, span, .content-text-skill, .content-text-skills-cant, .btn-default {
+    /* p, span, .content-text-skill, .content-text-skills-cant, .btn-default {
         font-size: 2em;
         line-height: 1.3em;
     }
     h2 {
         font-size: 3em;
-    }
+    } */
     .content-text-description-all-project {
         flex-direction: column;
     }
