@@ -88,6 +88,9 @@ header{
                 gap: 5px;
                 .item {
                     width: max-content;
+                    &_title {
+                        cursor: pointer;
+                    }
                     .subitems {
                         max-width: 100%;
                         height: max-content;
