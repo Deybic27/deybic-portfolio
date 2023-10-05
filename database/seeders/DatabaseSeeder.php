@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +20,15 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        // create permissions
+        Permission::findOrCreate('edit articles');
+        Permission::findOrCreate('delete articles');
+        Permission::findOrCreate('publish articles');
+        Permission::findOrCreate('unpublish articles');
+        
+        // create roles and assign existing permissions
+        $role1 = Role::findOrCreate('writer');
+        $role1->givePermissionTo('edit articles');
+        $role1->givePermissionTo('delete articles');
     }
 }
