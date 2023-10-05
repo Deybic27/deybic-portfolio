@@ -54,7 +54,15 @@
                                                 <td colspan="2">{{$post->title}}</td>
                                                 <td>{{$post->user->name}}</td>
                                                 <td>
-                                                    <a href="#&p={{$post->id}}"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-post"><i class="fas fa-arrow-circle-right"></i> Editar</button></a>
+                                                    @can('edit articles')
+                                                    <a href="#&p={{$post->id}}">
+                                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-post">
+                                                            <i class="fas fa-arrow-circle-right"></i>
+                                                            Editar
+                                                        </button>
+                                                    </a>
+                                                    @endcan
+                                                    @can('delete articles')
                                                     <form action="{{ route('posts.destroy',[$post->id]) }}" method="POST">
                                                         @method('DELETE')
                                                         @csrf
@@ -65,6 +73,7 @@
                                                             </button>
                                                         </a>
                                                     </form>
+                                                    @endcan
                                                 </td>
                                             </tr>
                                         @endforeach

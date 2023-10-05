@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Auth\Events\Registered;
+use App\Providers\RouteServiceProvider;
+use Spatie\Permission\Models\Permission;
 
 class RegisteredUserController extends Controller
 {
@@ -41,6 +43,20 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        if (!count(Role::findByName("writer")->users()->get()) > 0) {
+            // create permissions
+            Permission::findOrCreate('edit articles');
+            Permission::findOrCreate('delete articles');
+            Permission::findOrCreate('publish articles');
+            Permission::findOrCreate('unpublish articles');
+    
+            // create roles and assign existing permissions
+            $role1 = Role::findOrCreate('writer');
+            $role1->givePermissionTo('edit articles');
+            $role1->givePermissionTo('delete articles');
+            $user->assignRole($role1);
+        }
 
         event(new Registered($user));
 
