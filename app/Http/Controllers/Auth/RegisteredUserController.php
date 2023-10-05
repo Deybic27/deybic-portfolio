@@ -44,18 +44,20 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        if (!count(Role::findByName("writer")->users()->get()) > 0) {
-            // create permissions
-            Permission::findOrCreate('edit articles');
-            Permission::findOrCreate('delete articles');
-            Permission::findOrCreate('publish articles');
-            Permission::findOrCreate('unpublish articles');
-    
-            // create roles and assign existing permissions
-            $role1 = Role::findOrCreate('writer');
-            $role1->givePermissionTo('edit articles');
-            $role1->givePermissionTo('delete articles');
-            $user->assignRole($role1);
+        if (!Role::findByName("writer")) {
+            if (!count(Role::findByName("writer")->users()->get()) > 0) {
+                // create permissions
+                Permission::findOrCreate('edit articles');
+                Permission::findOrCreate('delete articles');
+                Permission::findOrCreate('publish articles');
+                Permission::findOrCreate('unpublish articles');
+        
+                // create roles and assign existing permissions
+                $role1 = Role::findOrCreate('writer');
+                $role1->givePermissionTo('edit articles');
+                $role1->givePermissionTo('delete articles');
+                $user->assignRole($role1);
+            }
         }
 
         event(new Registered($user));
