@@ -1,6 +1,10 @@
 <head>
     <link rel="icon" href="{{ asset('image/favicon.png') }}">
     <title>{{ $post['title'] }}</title>
+    <!-- Metatag -->
+    <meta name="keywords" content="{{ $post['title'] }}">
+    <meta name="author" content="{{ $post['author'] }}" />
+    <meta name="description" content="{{ $post['description'] }}">
     <!-- Scripts -->
     @vite(['resources/scss/templates/post-landing.scss', 'resources/icons/css/all.min.css', 'resources/js/post-landing.js'])
 </head>
