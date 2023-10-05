@@ -29,7 +29,14 @@
                         
                         @foreach ($categories as $category)
                         <div>
-                            <a href="#&c={{$category->id}}"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-category"><i class="fas fa-arrow-circle-right"></i> Editar categoría</button></a>
+                            @can('edit articles')
+                            <a href="#&c={{$category->id}}">
+                                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-category">
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                    Editar categoría
+                                </button>
+                            </a>
+                            @endcan
                             <h2>
                                 <!-- <a href="#&c={{$category->id}}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal-category"> <i class="fa-solid fa-pen"></i></a>-->
                                 {{ $category->name }}
@@ -74,6 +81,12 @@
                                                         </a>
                                                     </form>
                                                     @endcan
+                                                    <a href="{{ route('blog-show',[$post->id]) }}" target="_blank">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            <i class="fas fa-arrow-circle-right"></i>
+                                                            Ver
+                                                        </button>
+                                                    </a>
                                                 </td>
                                             </tr>
                                         @endforeach
